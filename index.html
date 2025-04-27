@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interaktiv CV – [Ditt navn]</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Hei Emonkey! 👋</h1>
+      <p>Interaktiv jobbsøknad – <strong>[Ditt navn]</strong></p>
+      <a href="link-til-cv.pdf" class="cv-link" target="_blank">Last ned PDF-CV</a>
+    </header>
+
+    <nav class="buttons">
+      <button onclick="openModal('om')">Om meg</button>
+      <button onclick="openModal('arbeid')">Arbeidserfaring</button>
+      <button onclick="openModal('prosjekt')">Prosjekt</button>
+    </nav>
+
+    <button id="analyzeBtn" onclick="triggerAnalysis()" style="display:none; margin-top:20px;">
+      Analyser resultat av ditt besøk!
+    </button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modal-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Kontakt meg: <a href="mailto:din.epost@domenet.no">din.epost@domenet.no</a> | 
+    <a href="https://www.linkedin.com/in/dittnavn" target="_blank">LinkedIn</a> | 
+    <a href="https://github.com/dittbrukernavn/emonkey-interaktiv-cv" target="_blank">GitHub</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
