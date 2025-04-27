@@ -2,7 +2,7 @@
 
 En én-sides interaktiv CV som demonstrerer hvordan jeg jobber med integrasjoner, automatisering og kundeopplevelser. Du kan utforske tre seksjoner («Om meg», «Arbeidserfaring», «Prosjekt») i on-page modaler, og når alle tre er åpnet får du en AI-drevet, personlig PDF-analyse av din egen opplevelse!
 
-
+<br><br>
 
 ## 🔗 Live Demo
 
