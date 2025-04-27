@@ -1,129 +1,67 @@
-/* ============  
-   Global  
-   ============ */
-* {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-               Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: #1a1a1a;
-  background: #fff;
+/* 0. RESET & GLOBAL ------------------------------------------------------- */
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  color:#1a1a1a;
+  background:#fff;
+  line-height:1.45;
 }
 
-/* ============  
-   Navbar  
-   ============ */
-.site-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e6ecf4;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+/* 1. NAVBAR --------------------------------------------------------------- */
+.site-header{
+  position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e6ecf4
 }
-.site-header .inner {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1rem;
-}
-.site-header .logo img {
-  height: 32px;
-}
-.site-nav {
-  margin-left: 2rem;
-  display: flex;
-  gap: 1.5rem;
-  flex-grow: 1;
-}
-.site-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-.site-header .btn-primary {
-  background: #247cec;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-}
+.wrap{max-width:1200px;margin:auto;padding:0.8rem 1.2rem;display:flex;align-items:center}
+.logo img{height:32px}
+.main-nav{display:flex;gap:1.6rem;margin-left:2rem;flex-grow:1}
+.main-nav a{color:#000;text-decoration:none;font-weight:600;font-size:0.95rem}
+.btn{display:inline-block;font-weight:600;text-decoration:none;border:none;cursor:pointer;border-radius:6px}
+.btn-primary{background:#247cec;color:#fff;padding:0.6rem 1.4rem;font-size:0.95rem}
+.btn-primary:hover{background:#1d65c5}
 
-/* ============  
-   Hero  
-   ============ */
-.hero {
-  background: linear-gradient(180deg, #f5f8fd 0%, #e6f0ff 100%);
-  text-align: center;
-  padding: 4rem 1rem;
+/* 2. HERO ----------------------------------------------------------------- */
+.hero{
+  text-align:center;
+  background:linear-gradient(180deg,#fdfdfd 0%,#e8f0ff 100%);
+  padding:4.5rem 1.5rem 5.5rem
 }
-.hero .inner {
-  max-width: 800px;
-  margin: auto;
+.hero h1{
+  font-size:3.1rem;font-weight:700;margin-bottom:0.5rem;color:#1c1c1c
 }
-.hero h1 {
-  margin: 0;
-  font-size: 3rem;
-  color: #1c1c1c;
-}
-.hero .lead {
-  margin: 1rem 0 2rem;
-  font-size: 1.25rem;
-  color: #4f4f4f;
-}
-.hero-cta .btn-secondary {
-  background: #4f90f3;
-  color: #fff;
-  padding: 0.8rem 1.6rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-}
+.hero-line1{display:block}
+.wave{font-size:2rem}
+.hero-lead{font-size:1.3rem;color:#4d4d4d;margin-bottom:2.5rem}
+.cta-row{margin-bottom:2rem}
+.btn-secondary{background:#4f90f3;color:#fff;padding:0.9rem 1.8rem;font-size:1rem}
+.btn-secondary:hover{background:#3d78d7}
 
-/* ============  
-   Resten (container, modaler etc)  
-   ============ */
-.container {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 1rem;
-  text-align: center;
+/* 3. INTERAKTIVA KNAPPER --------------------------------------------------- */
+.button-set{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem}
+.button-set button,
+.btn-tertiary{
+  background:#f6895f;color:#fff;padding:0.75rem 1.6rem;font-size:1rem;
+  border:none;border-radius:6px;cursor:pointer;font-weight:600;transition:background .2s ease
 }
+.button-set button:hover,
+.btn-tertiary:hover{background:#d9734b}
 
-/* Buttons */
-.buttons button,
-#analyzeBtn {
-  background-color: #f6895f;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  margin: 0.5rem;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
+/* 4. MODAL ---------------------------------------------------------------- */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200}
+.modal-inner{
+  background:#fff;border-radius:8px;padding:2rem;max-width:520px;margin:7% auto;position:relative;text-align:left;
+  box-shadow:0 4px 20px rgba(0,0,0,.15)
 }
-.buttons button:hover,
-#analyzeBtn:hover {
-  background-color: #d9734b;
-}
+.close{position:absolute;top:12px;right:16px;font-size:1.8rem;color:#666;cursor:pointer}
 
-/* Modal (som tidigare) */
-.modal { /* ... */ }
-/* (behåll dina modal-stilar) */
+/* 5. FOOTER --------------------------------------------------------------- */
+footer{background:#f7f9fe;padding:2rem 1rem;text-align:center;font-size:0.9rem;color:#555}
+footer a{color:#247cec;text-decoration:none}
+footer a:hover{text-decoration:underline}
 
-/* ============  
-   Footer  
-   ============ */
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.9rem;
-  color: #666;
-}
-footer a {
-  color: #247cec;
-  text-decoration: none;
+/* 6. RESPONSIVE ----------------------------------------------------------- */
+@media(max-width:680px){
+  .main-nav{display:none} /* enkel mobil-meny (kan byggas ut) */
+  .hero h1{font-size:2.2rem}
+  .hero-lead{font-size:1.05rem}
+  .button-set{flex-direction:column}
 }
