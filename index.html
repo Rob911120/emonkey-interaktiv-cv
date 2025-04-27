@@ -8,61 +8,62 @@
 </head>
 <body>
 
-  <!-- 1. NAVBAR -->
+  <!-- NAVBAR -->
   <header class="site-header">
-    <div class="inner">
-      <a href="#" class="logo">
-        <img src="assets/logo.png" alt="Emonkey" />
+    <div class="wrap">
+      <a class="logo" href="#">
+        <img src="assets/logo.png" alt="Emonkey-logo" />
       </a>
-      <nav class="site-nav">
+
+      <nav class="main-nav">
         <a href="#">Finn integrasjon</a>
         <a href="#">Hvordan vi hjelper</a>
         <a href="#">Tjenester</a>
         <a href="#">Priser</a>
         <a href="#">Ressurser</a>
       </nav>
-      <a href="mailto:din.epost@domenet.no" class="btn-primary">Kontakt oss</a>
+
+      <a class="btn btn-primary" href="mailto:din.epost@domenet.no">Kontakt oss</a>
     </div>
   </header>
 
-  <!-- 2. HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="inner">
-      <h1>Hei Emonkey! 👋</h1>
-      <p class="lead">Interaktiv jobbsøknad – <strong>[Ditt navn]</strong></p>
-      <div class="hero-cta">
-        <a href="link-til-cv.pdf" class="btn-secondary" target="_blank">Last ned PDF-CV</a>
+    <div class="wrap">
+      <h1><span class="hero-line1">Hei Emonkey!</span> <span class="wave">👋</span></h1>
+      <p class="hero-lead">Interaktiv jobbsøknad – <strong>[Ditt navn]</strong></p>
+
+      <div class="cta-row">
+        <a class="btn btn-secondary" href="link-til-cv.pdf" target="_blank">Last ned PDF-CV</a>
       </div>
+
+      <!-- dine interaktiva knapper -->
+      <div class="button-set">
+        <button onclick="openModal('om')">Om meg</button>
+        <button onclick="openModal('arbeid')">Arbeidserfaring</button>
+        <button onclick="openModal('prosjekt')">Prosjekt</button>
+      </div>
+
+      <button id="analyzeBtn" onclick="triggerAnalysis()" class="btn btn-tertiary" style="display:none;">
+        Analyser resultat av ditt besøk!
+      </button>
     </div>
   </section>
 
-  <!-- 3. INTERAKTIV DEL -->
-  <div class="container">
-    <div class="buttons">
-      <button onclick="openModal('om')">Om meg</button>
-      <button onclick="openModal('arbeid')">Arbeidserfaring</button>
-      <button onclick="openModal('prosjekt')">Prosjekt</button>
-    </div>
-
-    <button id="analyzeBtn" onclick="triggerAnalysis()" style="display:none;">
-      Analyser resultat av ditt besøk!
-    </button>
-
-    <!-- MODAL -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div id="modal-text"></div>
-      </div>
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-inner">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-content"></div>
     </div>
   </div>
 
-  <!-- 4. FOOTER -->
+  <!-- FOOTER -->
   <footer>
     <p>
       Kontakt meg:
-      <a href="mailto:din.epost@domenet.no">din.epost@domenet.no</a> |
-      <a href="https://www.linkedin.com/in/dittnavn" target="_blank">LinkedIn</a> |
+      <a href="mailto:din.epost@domenet.no">din.epost@domenet.no</a> | 
+      <a href="https://www.linkedin.com/in/dittnavn" target="_blank">LinkedIn</a> | 
       <a href="https://github.com/dittbrukernavn/emonkey-interaktiv-cv" target="_blank">GitHub</a>
     </p>
   </footer>
