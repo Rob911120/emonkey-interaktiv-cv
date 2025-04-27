@@ -9,7 +9,7 @@ En én-sides interaktiv CV som demonstrerer hvordan jeg jobber med integrasjoner
 Se siden live på GitHub Pages:\
 [https://dittbrukernavn.github.io/emonkey-interaktiv-cv](https://dittbrukernavn.github.io/emonkey-interaktiv-cv)
 
-
+<br><br>
 
 ## ✨ Funksjoner
 
