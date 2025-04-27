@@ -9,7 +9,7 @@ En én-sides interaktiv CV som demonstrerer hvordan jeg jobber med integrasjoner
 Se siden live på GitHub Pages:\
 [https://dittbrukernavn.github.io/emonkey-interaktiv-cv](https://dittbrukernavn.github.io/emonkey-interaktiv-cv)
 
----
+
 
 ## ✨ Funksjoner
 
@@ -25,7 +25,7 @@ Se siden live på GitHub Pages:\
 - **AI-drevet analyse & PDF**\
   Make.com + OpenAI API lager en personlig rapport basert på din interaksjon, og genererer en PDF du kan laste ned.
 
----
+
 
 ## 🛠 Teknologistack
 
@@ -35,7 +35,7 @@ Se siden live på GitHub Pages:\
 - **AI-analyse:** OpenAI API (GPT-4)
 - **PDF-generering:** Google Docs / Make.com PDF-modul
 
----
+
 
 ## 📁 Repository-struktur
 
@@ -49,7 +49,7 @@ emonkey-interaktiv-cv/
    └─ logo.png
 ```
 
----
+
 
 ## 🚀 Komme i gang
 
@@ -78,7 +78,7 @@ emonkey-interaktiv-cv/
 
 5. **Aktiver GitHub Pages** Gå til repo-innstillinger → Pages → velg `main` branch.
 
----
+
 
 ## ⚙️ Konfigurasjon
 
@@ -97,7 +97,7 @@ Om meg=[true/false], Arbeidserfaring=[true/false], Prosjekt=[true/false].
 Gi en oppsummering og interesse-score (%) basert på besøket.
 ```
 
----
+
 
 ## 🚧 Fremtidige forbedringer
 
@@ -106,7 +106,7 @@ Gi en oppsummering og interesse-score (%) basert på besøket.
 - Sanntidsvarsling til Slack/Teams når analysen er klar.
 - Legge til interaktiv quiz eller feedback-form for dypere innsikt.
 
----
+
 
 ## 📝 Forfatter
 
