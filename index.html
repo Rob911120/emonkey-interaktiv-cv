@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Interaktiv CV – [Ditt navn]</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Hei Emonkey! 👋</h1>
-      <p>Interaktiv jobbsøknad – <strong>[Ditt navn]</strong></p>
-      <a href="link-til-cv.pdf" class="cv-link" target="_blank">Last ned PDF-CV</a>
-    </header>
 
-    <nav class="buttons">
+  <!-- 1. NAVBAR -->
+  <header class="site-header">
+    <div class="inner">
+      <a href="#" class="logo">
+        <img src="assets/logo.png" alt="Emonkey" />
+      </a>
+      <nav class="site-nav">
+        <a href="#">Finn integrasjon</a>
+        <a href="#">Hvordan vi hjelper</a>
+        <a href="#">Tjenester</a>
+        <a href="#">Priser</a>
+        <a href="#">Ressurser</a>
+      </nav>
+      <a href="mailto:din.epost@domenet.no" class="btn-primary">Kontakt oss</a>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <section class="hero">
+    <div class="inner">
+      <h1>Hei Emonkey! 👋</h1>
+      <p class="lead">Interaktiv jobbsøknad – <strong>[Ditt navn]</strong></p>
+      <div class="hero-cta">
+        <a href="link-til-cv.pdf" class="btn-secondary" target="_blank">Last ned PDF-CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. INTERAKTIV DEL -->
+  <div class="container">
+    <div class="buttons">
       <button onclick="openModal('om')">Om meg</button>
       <button onclick="openModal('arbeid')">Arbeidserfaring</button>
       <button onclick="openModal('prosjekt')">Prosjekt</button>
-    </nav>
+    </div>
 
-    <button id="analyzeBtn" onclick="triggerAnalysis()" style="display:none; margin-top:20px;">
+    <button id="analyzeBtn" onclick="triggerAnalysis()" style="display:none;">
       Analyser resultat av ditt besøk!
     </button>
 
-    <!-- Modal -->
+    <!-- MODAL -->
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
@@ -33,10 +57,14 @@
     </div>
   </div>
 
+  <!-- 4. FOOTER -->
   <footer>
-    <p>Kontakt meg: <a href="mailto:din.epost@domenet.no">din.epost@domenet.no</a> | 
-    <a href="https://www.linkedin.com/in/dittnavn" target="_blank">LinkedIn</a> | 
-    <a href="https://github.com/dittbrukernavn/emonkey-interaktiv-cv" target="_blank">GitHub</a></p>
+    <p>
+      Kontakt meg:
+      <a href="mailto:din.epost@domenet.no">din.epost@domenet.no</a> |
+      <a href="https://www.linkedin.com/in/dittnavn" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/dittbrukernavn/emonkey-interaktiv-cv" target="_blank">GitHub</a>
+    </p>
   </footer>
 
   <script src="main.js"></script>
