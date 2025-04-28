@@ -11,249 +11,77 @@
       --bg: #ffffff;
       --text: #111827;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       line-height: 1.6;
       color: var(--text);
       background: var(--bg);
     }
-
     /* Hero */
     header {
       padding: 4rem 1rem 3rem;
       text-align: center;
-      background: linear-gradient(180deg, #f7f9fc 0%, #eaf1ff 100%);
+      background: linear-gradient(180deg,#f7f9fc 0%,#eaf1ff 100%);
     }
-
-    h1 {
-      font-size: clamp(2.5rem, 6vw, 3rem);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    h1 span {
-      color: var(--primary);
-    }
-
-    p.sub {
-      font-size: 1.125rem;
-      margin-bottom: 2rem;
-    }
+    h1 { font-size: clamp(2.5rem,6vw,3rem); font-weight: 700; margin-bottom:.5rem; }
+    h1 span{ color:var(--primary); }
+    .sub{ font-size:1.125rem; margin-bottom:2rem; }
 
     /* Analyze button */
-    #analyzeBtn {
-      position: relative;
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: #fff;
-      background: var(--primary);
-      border: none;
-      border-radius: 0.5rem;
-      cursor: not-allowed;
-      overflow: hidden;
-      transition: transform 150ms ease;
+    #analyzeBtn{
+      position:relative; display:inline-block; padding:1rem 2.5rem; font-size:1.125rem; font-weight:600;
+      color:#fff; background:var(--primary); border:none; border-radius:.5rem; cursor:not-allowed;
+      overflow:hidden; transition:transform 150ms ease;
     }
-
-    #analyzeBtn.unlocked {
-      cursor: pointer;
-    }
-
-    #analyzeBtn:active {
-      transform: scale(0.96);
-    }
-
-    #overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(2px);
-      transition: width 200ms ease;
-      pointer-events: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      #overlay {
-        transition: none;
-      }
-      #analyzeBtn {
-        transition: none;
-      }
-    }
+    #analyzeBtn.unlocked{ cursor:pointer; }
+    #analyzeBtn:active{ transform:scale(.96); }
+    #overlay{ position:absolute; inset:0; background:rgba(255,255,255,.4); backdrop-filter:blur(2px);
+      transition:width 200ms ease; pointer-events:none; width:100%; }
+    @media(prefers-reduced-motion:reduce){ #overlay, #analyzeBtn{ transition:none; } }
 
     /* Icon bar */
-    .icon-bar {
-      display: flex;
-      justify-content: space-around;
-      gap: 1rem;
-      padding: 2rem 1rem;
-      flex-wrap: wrap;
-      background: #fff;
-    }
+    .icon-bar{ display:flex; justify-content:space-around; gap:1rem; padding:2rem 1rem; flex-wrap:wrap; background:#fff; }
+    .icon{ display:flex; flex-direction:column; align-items:center; gap:.5rem; width:80px; cursor:pointer; user-select:none; }
+    .icon svg{ width:40px; height:40px; stroke:var(--primary); stroke-width:2; fill:none; }
+    .icon span{ font-size:.875rem; font-weight:600; }
+    .icon.active span, .icon.active svg{ color:var(--accent); stroke:var(--accent); }
 
-    .icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      width: 80px;
-      cursor: pointer;
-    }
+    /* CV Sections */
+    .cv-container{ padding:2rem 1rem; background:#f5f7fa; }
+    .cv-section{ display:none; animation:fadeIn 200ms ease forwards; }
+    .cv-section.active{ display:block; }
+    @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;} }
 
-    .icon svg {
-      width: 40px;
-      height: 40px;
-      stroke: var(--primary);
-      stroke-width: 2;
-      fill: none;
-    }
+    /* About layout */
+    .about-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-bottom:2rem; }
+    .about-grid div{ background:#fff; padding:1rem 1.25rem; border-radius:.5rem; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+    .about-grid dt{ font-weight:600; }
+    .about-summary{ background:#fff; padding:1.25rem; border-radius:.5rem; box-shadow:0 2px 6px rgba(0,0,0,.05); }
 
-    .icon span {
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
+    /* Projects */
+    .project-list{ list-style:none; display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+    .project-item{ background:#fff; padding:1.25rem; border-radius:.5rem; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+    .project-item h3{ margin-bottom:.5rem; font-size:1.05rem; }
+    .project-item small{ display:block; margin-top:.5rem; color:#6b7280; }
 
-    /* Modal */
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      z-index: 100;
-    }
+    /* Experience */
+    .exp-list{ list-style:none; display:flex; flex-direction:column; gap:1rem; }
+    .exp-item{ background:#fff; padding:1.25rem; border-radius:.5rem; box-shadow:0 2px 6px rgba(0,0,0,.05); position:relative; }
+    .exp-item h3{ margin-bottom:.25rem; font-size:1.05rem; }
+    .exp-item span.period{ font-size:.875rem; color:#6b7280; }
 
-    .modal.open {
-      display: flex;
-    }
-
-    .modal-dialog {
-      background: #fff;
-      border-radius: 0.5rem;
-      max-width: 500px;
-      width: 100%;
-      padding: 2rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .modal-dialog h2 {
-      margin-bottom: 1rem;
-    }
-
-    .modal-dialog button {
-      margin-top: 1.5rem;
-      padding: 0.5rem 1rem;
-      background: var(--accent);
-      border: none;
-      color: #fff;
-      border-radius: 0.3rem;
-      cursor: pointer;
-    }
-
-    /* Services */
-    .services {
-      display: grid;
-      gap: 1rem;
-      padding: 2rem 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      background: #f5f7fa;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 150ms ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    /* Contact */
-    .contact {
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    .contact form {
-      max-width: 600px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .contact input,
-    .contact textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.375rem;
-      font-size: 1rem;
-    }
-
-    .contact button {
-      align-self: center;
-      padding: 0.75rem 2rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-    }
+    /* Strengths */
+    .skills{ display:flex; flex-wrap:wrap; gap:.5rem; }
+    .tag{ background:var(--primary); color:#fff; padding:.4rem .75rem; border-radius:1rem; font-size:.875rem; }
 
     /* Footer */
-    footer {
-      background: #111827;
-      color: #e5e7eb;
-      padding: 2rem 1rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      max-width: 960px;
-      margin: auto;
-    }
-
-    footer h3 {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-
-    footer ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    footer a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 150ms ease;
-    }
-
-    footer a:hover {
-      color: var(--accent);
-    }
+    footer{ background:#111827; color:#e5e7eb; padding:2rem 1rem; }
+    .footer-grid{ display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); max-width:960px; margin:auto; }
+    footer h3{ font-size:1rem; margin-bottom:1rem; color:#fff; }
+    footer ul{ list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    footer a{ color:inherit; text-decoration:none; transition:color 150ms ease; }
+    footer a:hover{ color:var(--accent); }
   </style>
 </head>
 <body>
@@ -268,75 +96,93 @@
 
   <!-- Icon navigation -->
   <section class="icon-bar">
-    <div class="icon" data-modal="aboutModal">
+    <div class="icon active" data-section="about">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5 21c0-3.866 3.134-7 7-7s7 3.134 7 7"/></svg>
       <span>Om meg</span>
     </div>
-    <div class="icon" data-modal="projectsModal">
+    <div class="icon" data-section="projects">
       <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       <span>Projekt</span>
     </div>
-    <div class="icon" data-modal="experienceModal">
+    <div class="icon" data-section="experience">
       <svg viewBox="0 0 24 24"><path d="M3 7h18v13H3z"/><path d="M16 3H8v4h8z"/></svg>
       <span>Erfaring</span>
     </div>
-    <div class="icon" data-modal="strengthsModal">
+    <div class="icon" data-section="strengths">
       <svg viewBox="0 0 24 24"><polygon points="12 2 15 11 24 11 17 17 19 26 12 20 5 26 7 17 0 11 9 11"/></svg>
       <span>Styrker</span>
     </div>
   </section>
 
-  <!-- Modals -->
-  <div class="modal" id="aboutModal">
-    <div class="modal-dialog">
-      <h2>Om meg</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
-      <button data-close>Lukk</button>
-    </div>
-  </div>
+  <!-- Dynamic CV container -->
+  <section class="cv-container">
 
-  <div class="modal" id="projectsModal">
-    <div class="modal-dialog">
-      <h2>Projekt</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
-      <button data-close>Lukk</button>
-    </div>
-  </div>
+    <!-- ABOUT -->
+    <article id="about" class="cv-section active">
+      <h2>Personlig informasjon</h2>
+      <div class="about-grid">
+        <div><dl><dt>Navn</dt><dd>[Fullt Navn]</dd></dl></div>
+        <div><dl><dt>Adresse</dt><dd>[Gate + Nr]</dd></dl></div>
+        <div><dl><dt>Poststed</dt><dd>[Postnr, By]</dd></dl></div>
+        <div><dl><dt>Telefon</dt><dd>[+47 000 00 000]</dd></dl></div>
+        <div><dl><dt>E‑post</dt><dd>[epost@example.com]</dd></dl></div>
+        <div><dl><dt>Fødselsdato</dt><dd>[dd.mm.åååå]</dd></dl></div>
+      </div>
+      <div class="about-summary">
+        <p><strong>Profil:</strong> Kort sammendrag av dine nøkkelkompetanser og karrieremål. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit.</p>
+      </div>
+    </article>
 
-  <div class="modal" id="experienceModal">
-    <div class="modal-dialog">
-      <h2>Erfaring</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
-      <button data-close>Lukk</button>
-    </div>
-  </div>
+    <!-- PROJECTS -->
+    <article id="projects" class="cv-section">
+      <h2>Utvalgte prosjekt</h2>
+      <ul class="project-list">
+        <li class="project-item">
+          <h3>Prosjekt Alpha</h3>
+          <p>Beskrivelse av prosjektet med fokus på utfordring, løsning og resultat.</p>
+          <small>Teknologier: HTML, CSS, JavaScript</small>
+        </li>
+        <li class="project-item">
+          <h3>Prosjekt Beta</h3>
+          <p>Kort tekst om prosjektet, teamstørrelse og hva du bidro med.</p>
+          <small>Teknologier: Node, Express, MongoDB</small>
+        </li>
+      </ul>
+    </article>
 
-  <div class="modal" id="strengthsModal">
-    <div class="modal-dialog">
-      <h2>Styrker</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
-      <button data-close>Lukk</button>
-    </div>
-  </div>
+    <!-- EXPERIENCE -->
+    <article id="experience" class="cv-section">
+      <h2>Arbeidserfaring</h2>
+      <ul class="exp-list">
+        <li class="exp-item">
+          <h3>Frontend‑utvikler – Firma AS</h3>
+          <span class="period">2021 – nå</span>
+          <p>Ansvarlig for utvikling av responsiv web‑app, optimalisering av ytelse og brukervennlighet.</p>
+        </li>
+        <li class="exp-item">
+          <h3>Webdesigner – Webbyrå AB</h3>
+          <span class="period">2018 – 2021</span>
+          <p>Designet og implementerte nettsider for SMB‑kunder med fokus på konvertering.</p>
+        </li>
+      </ul>
+    </article>
 
-  <!-- Services -->
-  <section class="services">
-    <div class="card"><h3>Tjeneste 1</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
-    <div class="card"><h3>Tjeneste 2</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
-    <div class="card"><h3>Tjeneste 3</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
-    <div class="card"><h3>Tjeneste 4</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+    <!-- STRENGTHS -->
+    <article id="strengths" class="cv-section">
+      <h2>Styrker & ferdigheter</h2>
+      <div class="skills">
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Tilpasningsdyktig</span>
+        <span class="tag">Teamarbeid</span>
+        <span class="tag">Kommunikasjon</span>
+      </div>
+    </article>
+
   </section>
 
-  <!-- Contact -->
-  <section class="contact">
-    <h2>Kontakt</h2>
-    <form onsubmit="event.preventDefault();alert('Takk! Din melding er sendt.');this.reset();">
-      <input type="text" placeholder="Navn" required />
-      <input type="email" placeholder="E‑post" required />
-      <textarea rows="5" placeholder="Melding" required></textarea>
-      <button type="submit">Send melding</button>
-    </form>
-  </section>
 
   <!-- Footer -->
   <footer>
@@ -345,8 +191,8 @@
         <h3>Meny</h3>
         <ul>
           <li><a href="#">Hjem</a></li>
-          <li><a href="#">Projekt</a></li>
-          <li><a href="#">Kontakt</a></li>
+          <li><a href="#projects">Projekt</a></li>
+          <li><a href="#contact">Kontakt</a></li>
         </ul>
       </div>
       <div>
@@ -368,55 +214,36 @@
   </footer>
 
   <script>
-    (function () {
-      const overlay = document.getElementById('overlay');
-      const btn = document.getElementById('analyzeBtn');
-      let remaining = 100; // overlay width in %
-      const unlockThreshold = 80; // when remaining <= 80 => 20% unlocked
-
-      const reduce = (amount = 1) => {
-        if (remaining <= 0) return;
-        remaining = Math.max(0, remaining - amount);
-        overlay.style.width = remaining + '%';
-        if (remaining <= unlockThreshold && !btn.classList.contains('unlocked')) {
-          btn.classList.add('unlocked');
-          btn.style.cursor = 'pointer';
-          btn.removeAttribute('disabled');
+    (function(){
+      const overlay=document.getElementById('overlay');
+      const btn=document.getElementById('analyzeBtn');
+      let remaining=100; const unlockThreshold=80;
+      const reduce=(amount=1)=>{
+        if(remaining<=0)return; remaining=Math.max(0,remaining-amount);
+        overlay.style.width=remaining+'%';
+        if(remaining<=unlockThreshold&&!btn.classList.contains('unlocked')){
+          btn.classList.add('unlocked'); btn.style.cursor='pointer'; btn.removeAttribute('disabled');
         }
       };
+      ['mousemove','scroll'].forEach(evt=>{window.addEventListener(evt,()=>reduce(.1),{passive:true});});
 
-      // user activity events
-      ['mousemove', 'scroll'].forEach((evt) => {
-        window.addEventListener(evt, () => reduce(0.5), { passive: true });
-      });
-      document.addEventListener('click', (e) => {
-        if (e.target.closest('.icon')) reduce(5);
-        else if (e.target !== btn) reduce(1);
-      });
-
-      // button click
-      btn.addEventListener('click', () => {
-        if (!btn.classList.contains('unlocked')) return;
-        btn.disabled = true;
-        btn.textContent = 'Analysis generating…';
-        fetch('https://example.com/webhook', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ event: 'analyze' }),
-        }).catch(() => {}); // ignore errors for demo
-      });
-
-      // modal logic
-      document.querySelectorAll('.icon').forEach((icon) => {
-        icon.addEventListener('click', () => {
-          const target = document.getElementById(icon.dataset.modal);
-          target.classList.add('open');
+      // Toggle sections
+      const icons=document.querySelectorAll('.icon');
+      const sections=document.querySelectorAll('.cv-section');
+      icons.forEach(icon=>{
+        icon.addEventListener('click',()=>{
+          const id=icon.dataset.section;
+          icons.forEach(i=>i.classList.toggle('active',i===icon));
+          sections.forEach(sec=>sec.classList.toggle('active',sec.id===id));
+          reduce(5);
         });
       });
-      document.querySelectorAll('.modal').forEach((modal) => {
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal || e.target.dataset.close !== undefined) modal.classList.remove('open');
-        });
+
+      // Analyze button
+      btn.addEventListener('click',()=>{
+        if(!btn.classList.contains('unlocked'))return;
+        btn.disabled=true; btn.textContent='Analysis generating…';
+        fetch('https://example.com/webhook',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event:'analyze'})}).catch(()=>{});
       });
     })();
   </script>
