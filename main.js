@@ -17,7 +17,7 @@
   };
 
   ['mousemove', 'scroll'].forEach(evt =>
-    window.addEventListener(evt, () => reduce(0.1), { passive: true })
+    window.addEventListener(evt, () => reduce(0.2), { passive: true })
   );
 
   // Toggle sections
