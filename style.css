@@ -48,6 +48,29 @@ h1 span{ color:var(--primary); }
   }
 }
 
+.action-btn2 {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: .5rem;
+  overflow: hidden;
+  transition: transform 150ms ease;
+}
+.action-btn:active {
+  transform: scale(.96);
+}
+@media (prefers-reduced-motion: reduce) {
+  .action-btn {
+    transition: none;
+  }
+}
+
+
 /* Overlay – bara för analyze-knappen */
 #overlay {
   position: absolute;
